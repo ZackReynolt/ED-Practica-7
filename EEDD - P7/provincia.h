@@ -8,6 +8,7 @@
 #ifndef PROVINCIA_H
 #define	PROVINCIA_H
 
+#include "Municipios.h"
 #include <string>
 #include <vector>
 
@@ -25,7 +26,7 @@ public:
         
         //Suma de los habitantes de cada municipio
         for (int i = 0; i < lista_provincias.end(); ++i) {
-            total_habitantes+=lista_provincias[i].habitantes;
+            total_habitantes+=lista_provincias[i]->_habitantes;
         }
         
         return total_habitantes;
