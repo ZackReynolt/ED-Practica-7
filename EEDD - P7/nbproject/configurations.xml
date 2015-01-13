@@ -4,8 +4,9 @@
     <logicalFolder name="HeaderFiles"
                    displayName="Header Files"
                    projectFiles="true">
-      <itemPath>Municipios.h</itemPath>
-      <itemPath>provincia.h</itemPath>
+      <itemPath>Mallaregular.h</itemPath>
+      <itemPath>Municipio.h</itemPath>
+      <itemPath>Provincia.h</itemPath>
     </logicalFolder>
     <logicalFolder name="ResourceFiles"
                    displayName="Resource Files"
@@ -39,13 +40,15 @@
       </toolsSet>
       <compileType>
       </compileType>
-      <item path="Municipios.h" ex="false" tool="3" flavor2="0">
+      <item path="Mallaregular.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="Municipio.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="Provincia.h" ex="false" tool="3" flavor2="0">
       </item>
       <item path="distancia.cpp" ex="false" tool="1" flavor2="0">
       </item>
       <item path="main.cpp" ex="false" tool="1" flavor2="0">
-      </item>
-      <item path="provincia.h" ex="false" tool="3" flavor2="0">
       </item>
     </conf>
     <conf name="Release" type="1">
@@ -68,13 +71,15 @@
           <developmentMode>5</developmentMode>
         </asmTool>
       </compileType>
-      <item path="Municipios.h" ex="false" tool="3" flavor2="0">
+      <item path="Mallaregular.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="Municipio.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="Provincia.h" ex="false" tool="3" flavor2="0">
       </item>
       <item path="distancia.cpp" ex="false" tool="1" flavor2="0">
       </item>
       <item path="main.cpp" ex="false" tool="1" flavor2="0">
-      </item>
-      <item path="provincia.h" ex="false" tool="3" flavor2="0">
       </item>
     </conf>
   </confs>

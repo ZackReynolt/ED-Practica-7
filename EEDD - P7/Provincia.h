@@ -34,6 +34,10 @@ public:
         return total_habitantes;
     };
     
+    bool operator==(const Provincia &orig) {
+        return nombre == orig.nombre;
+    };
+    
 private:
 
 };

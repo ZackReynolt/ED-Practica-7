@@ -5,8 +5,8 @@
  * Created on 12 de enero de 2015, 17:47
  */
 
-#ifndef MUNICIPIOS_H
-#define	MUNICIPIOS_H
+#ifndef MUNICIPIO_H
+#define	MUNICIPIO_H
 
 using namespace std;
 
@@ -21,6 +21,12 @@ public:
   
     int habitantes() {
         return _habitantes;
+    }
+    
+    bool operator== (const Municipio& orig) {
+        if (_nombre == orig._nombre && _lat == orig._lat && _long == orig._long)
+            return true;
+        return false;
     }
 };
 
