@@ -14,13 +14,13 @@
 
 using namespace std;
 
-class provincia {   
+class Provincia {   
 public:
     string nombre;
     vector<Municipios*> lista_provincias;
-    provincia();
-    provincia(const provincia& orig);
-    virtual ~provincia();
+    Provincia();
+    Provincia(const Provincia& orig);
+    virtual ~Provincia();
     int habitantes() {
         int total_habitantes=0;
         
