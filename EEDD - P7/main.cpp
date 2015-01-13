@@ -13,6 +13,7 @@
 #include "Municipio.h"
 #include "Provincia.h"
 #include "Mallaregular.h"
+#include "ControlDemografico.h"
 
 using namespace std;
 
@@ -45,6 +46,7 @@ void cargaFichero() {
  */
 int main(int argc, char** argv) {
     
+    ControlDemografico cd;
     cargaFichero();
 
     return 0;

@@ -4,6 +4,7 @@
     <logicalFolder name="HeaderFiles"
                    displayName="Header Files"
                    projectFiles="true">
+      <itemPath>ControlDemografico.h</itemPath>
       <itemPath>Mallaregular.h</itemPath>
       <itemPath>Municipio.h</itemPath>
       <itemPath>Provincia.h</itemPath>
@@ -40,6 +41,8 @@
       </toolsSet>
       <compileType>
       </compileType>
+      <item path="ControlDemografico.h" ex="false" tool="3" flavor2="0">
+      </item>
       <item path="Mallaregular.h" ex="false" tool="3" flavor2="0">
       </item>
       <item path="Municipio.h" ex="false" tool="3" flavor2="0">
@@ -71,6 +74,8 @@
           <developmentMode>5</developmentMode>
         </asmTool>
       </compileType>
+      <item path="ControlDemografico.h" ex="false" tool="3" flavor2="0">
+      </item>
       <item path="Mallaregular.h" ex="false" tool="3" flavor2="0">
       </item>
       <item path="Municipio.h" ex="false" tool="3" flavor2="0">

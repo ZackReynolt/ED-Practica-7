@@ -12,12 +12,15 @@
 #include <string>
 
 #include "Provincia.h"
+#include "Municipio.h"
+#include "Mallaregular.h"
 
 using namespace std;
 
 class ControlDemografico {
 public:
     vector<Provincia*> lista_provincias;
+    MallaRegular<Municipio*> malla_municipios;
     
     ControlDemografico          ();
     ControlDemografico          (const ControlDemografico& orig);
