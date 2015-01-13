@@ -8,7 +8,9 @@
 #ifndef MUNICIPIOS_H
 #define	MUNICIPIOS_H
 
-class Municipios {    
+using namespace std;
+
+class Municipio {    
 public:
     string  _nombre;
     float   _lat;

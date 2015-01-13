@@ -8,7 +8,7 @@
 #ifndef PROVINCIA_H
 #define	PROVINCIA_H
 
-#include "Municipios.h"
+#include "Municipio.h"
 #include <string>
 #include <vector>
 
@@ -17,15 +17,17 @@ using namespace std;
 class Provincia {   
 public:
     string nombre;
-    vector<Municipios*> lista_provincias;
-    Provincia();
-    Provincia(const Provincia& orig);
-    virtual ~Provincia();
+    vector<Municipio*> lista_provincias;
+    
+    
+    Provincia          ();
+    Provincia          (const Provincia& orig);
+    virtual ~Provincia ();
     int habitantes() {
         int total_habitantes=0;
         
         //Suma de los habitantes de cada municipio
-        for (int i = 0; i < lista_provincias.end(); ++i) {
+        for (int i = 0; i < lista_provincias.size(); ++i) {
             total_habitantes+=lista_provincias[i]->_habitantes;
         }
         
