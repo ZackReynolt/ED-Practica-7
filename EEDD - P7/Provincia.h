@@ -20,9 +20,9 @@ public:
     vector<Municipio*> lista_municipios;
     
     
-    Provincia          ();
-    Provincia          (const Provincia& orig);
-    virtual ~Provincia ();
+    Provincia          (string nom): nombre(nom) {};
+    Provincia          (const Provincia& orig) {};
+    virtual ~Provincia () {};
     int habitantes() {
         int total_habitantes=0;
         

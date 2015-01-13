@@ -17,7 +17,7 @@
 
 using namespace std;
 
-void cargaFichero() {
+void cargaFichero(ControlDemografico cd) {
     try {
         // Opens a file
         fstream fi("municipios.txt");
@@ -30,7 +30,7 @@ void cargaFichero() {
             }
             
             if (contador == 9) {
-                
+                cd.lista_provincias.push_back(Provincia(atributo[0]));
                 contador = 1;
             } else
                 contador++;
@@ -45,9 +45,8 @@ void cargaFichero() {
  * 
  */
 int main(int argc, char** argv) {
-    
     ControlDemografico cd;
-    cargaFichero();
+    cargaFichero(cd);
 
     return 0;
 }

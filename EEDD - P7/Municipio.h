@@ -18,8 +18,11 @@ public:
     float   _altitud;
     int     _habitantes;
     
+    Municipio           (string nombre, float lat, float longi, float alt, int habit) :
+                        _nombre(nombre) , _lat(lat), _long(longi), _altitud(alt), _habitantes(habit) {};
+    virtual ~Municipio  () {};
   
-    int habitantes() {
+    int habitantes      () {
         return _habitantes;
     }
     

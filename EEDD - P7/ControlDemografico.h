@@ -19,20 +19,20 @@ using namespace std;
 
 class ControlDemografico {
 public:
-    vector<Provincia*> lista_provincias;
-    MallaRegular<Municipio*> malla_municipios;
+    vector<Provincia> lista_provincias;
+    MallaRegular<Municipio> malla_municipios;
     
     ControlDemografico          ();
-    ControlDemografico          (const ControlDemografico& orig);
-    virtual ~ControlDemografico ();
+    ControlDemografico          (const ControlDemografico& orig) {};
+    virtual ~ControlDemografico () {};
     
     int habitantesPorZona       (float _lat, float _long) {};
     int habitantesPorZona       (string municipio) {};
     int habitantesPorProvincia  (string nombreProvincia) {
         int numHabitantes = 0;
         for (int i = 0; i < lista_provincias.size(); ++i) {
-            if (lista_provincias[i]->nombre == nombreProvincia)
-                numHabitantes = lista_provincias[i]->habitantes();
+            if (lista_provincias[i].nombre == nombreProvincia)
+                numHabitantes = lista_provincias[i].habitantes();
         }
         
         return numHabitantes;
