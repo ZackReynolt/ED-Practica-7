@@ -8,7 +8,7 @@
 #ifndef CONTROLDEMOGRAFICO_H
 #define	CONTROLDEMOGRAFICO_H
 
-#include <vector>
+#include <map>
 #include <string>
 
 #include "Provincia.h"
@@ -19,11 +19,14 @@ using namespace std;
 
 class ControlDemografico {
 public:
-    vector<Provincia> lista_provincias;
+    map<string, Provincia> lista_provincias;
     MallaRegular<Municipio> malla_municipios;
     
-    ControlDemografico          ();
-    ControlDemografico          (const ControlDemografico& orig) {};
+    // 36.1251199, -9.1367635
+    // 43.8321591, 4.3428536
+    ControlDemografico          (float lat_min, float long_min, float lat_max, float long_max, int division ) : 
+                                malla_municipios(lat_min, long_min, lat_max, long_max, division) {};
+    //ControlDemografico          (const ControlDemografico& orig) {};
     virtual ~ControlDemografico () {};
     
     int habitantesPorZona       (float _lat, float _long) {};
@@ -31,8 +34,8 @@ public:
     int habitantesPorProvincia  (string nombreProvincia) {
         int numHabitantes = 0;
         for (int i = 0; i < lista_provincias.size(); ++i) {
-            if (lista_provincias[i].nombre == nombreProvincia)
-                numHabitantes = lista_provincias[i].habitantes();
+//            if (lista_provincias[i].nombre == nombreProvincia)
+//                numHabitantes = lista_provincias[i].habitantes();
         }
         
         return numHabitantes;

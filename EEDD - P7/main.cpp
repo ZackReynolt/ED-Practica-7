@@ -21,17 +21,29 @@ void cargaFichero(ControlDemografico cd) {
     try {
         // Opens a file
         fstream fi("municipios.txt");
-        string line, atributo[6];
-        int contador = 1;
+        string line, atributo[8];
+        int contador = 0;
 
         while (!fi.eof()) {
-            if (contador > 1 && contador < 8) {
+            getline(fi, line);
+            if (contador > 0 && contador < 8)
                 atributo[contador] = line;
-            }
             
-            if (contador == 9) {
-                cd.lista_provincias.push_back(Provincia(atributo[0]));
-                contador = 1;
+            if (contador == 8) {
+                map<string, Provincia>::iterator it = cd.lista_provincias.find(atributo[1]);
+                if (it == cd.lista_provincias.end()) {
+                    pair<string, Provincia> p(atributo[1], Provincia(atributo[1]));
+                    cd.lista_provincias.insert(p);
+                    it = cd.lista_provincias.find(atributo[1]);
+                }
+                
+                float latitud   = atof(atributo[3].c_str());
+                float longitud  = atof(atributo[4].c_str());
+                float altitud   = atof(atributo[5].c_str());
+                int habit  = atoi(atributo[6].c_str());
+
+                it->second.lista_municipios.push_back(new Municipio(atributo[2], latitud, longitud, altitud, habit));
+                contador = 0;
             } else
                 contador++;
         }
@@ -45,8 +57,11 @@ void cargaFichero(ControlDemografico cd) {
  * 
  */
 int main(int argc, char** argv) {
-    ControlDemografico cd;
+    ControlDemografico cd(36.1251199, -9.1367635, 43.8321591, 4.3428536, 30);
     cargaFichero(cd);
+    
+    map<string, Provincia>::iterator it = cd.lista_provincias.find("Granada");
+    cout << it->second.habitantes() << endl;
 
     return 0;
 }

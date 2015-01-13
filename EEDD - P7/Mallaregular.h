@@ -34,6 +34,8 @@ class MallaRegular {
     Casilla<T> *obtenerCasilla (float x, float y);
     
 public:
+    // 36.1251199, -9.1367635
+    // 43.8321591, 4.3428536
     MallaRegular (int aXMin, int aYMin, int aXMax, int aYMax, int aNDiv): 
                     xMin(aXMin), yMin(aYMin), xMax(aXMax), yMax(aYMax) {
         tamaCasillaX = (xMax - xMin) / aNDiv;

@@ -20,7 +20,7 @@ public:
     vector<Municipio*> lista_municipios;
     
     
-    Provincia          (string nom): nombre(nom) {};
+    Provincia          (string nom): nombre(nom), lista_municipios() {};
     Provincia          (const Provincia& orig) {};
     virtual ~Provincia () {};
     int habitantes() {
@@ -28,7 +28,7 @@ public:
         
         //Suma de los habitantes de cada municipio
         for (int i = 0; i < lista_municipios.size(); ++i) {
-            total_habitantes+=lista_municipios[i]->_habitantes;
+            total_habitantes += lista_municipios[i]->_habitantes;
         }
         
         return total_habitantes;
