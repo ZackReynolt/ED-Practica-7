@@ -17,7 +17,7 @@ using namespace std;
 class Provincia {   
 public:
     string nombre;
-    vector<Municipio*> lista_provincias;
+    vector<Municipio*> lista_municipios;
     
     
     Provincia          ();
@@ -27,8 +27,8 @@ public:
         int total_habitantes=0;
         
         //Suma de los habitantes de cada municipio
-        for (int i = 0; i < lista_provincias.size(); ++i) {
-            total_habitantes+=lista_provincias[i]->_habitantes;
+        for (int i = 0; i < lista_municipios.size(); ++i) {
+            total_habitantes+=lista_municipios[i]->_habitantes;
         }
         
         return total_habitantes;

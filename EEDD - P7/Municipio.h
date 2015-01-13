@@ -5,8 +5,8 @@
  * Created on 12 de enero de 2015, 17:47
  */
 
-#ifndef MUNICIPIOS_H
-#define	MUNICIPIOS_H
+#ifndef MUNICIPIO_H
+#define	MUNICIPIO_H
 
 using namespace std;
 
