@@ -12,7 +12,6 @@
     <logicalFolder name="ResourceFiles"
                    displayName="Resource Files"
                    projectFiles="true">
-      <itemPath>distancia.cpp</itemPath>
     </logicalFolder>
     <logicalFolder name="SourceFiles"
                    displayName="Source Files"
@@ -49,8 +48,6 @@
       </item>
       <item path="Provincia.h" ex="false" tool="3" flavor2="0">
       </item>
-      <item path="distancia.cpp" ex="false" tool="1" flavor2="0">
-      </item>
       <item path="main.cpp" ex="false" tool="1" flavor2="0">
       </item>
     </conf>
@@ -81,8 +78,6 @@
       <item path="Municipio.h" ex="false" tool="3" flavor2="0">
       </item>
       <item path="Provincia.h" ex="false" tool="3" flavor2="0">
-      </item>
-      <item path="distancia.cpp" ex="false" tool="1" flavor2="0">
       </item>
       <item path="main.cpp" ex="false" tool="1" flavor2="0">
       </item>

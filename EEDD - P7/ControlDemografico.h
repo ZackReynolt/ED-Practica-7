@@ -29,7 +29,17 @@ public:
     //ControlDemografico          (const ControlDemografico& orig) {};
     virtual ~ControlDemografico () {};
     
-    int habitantesPorZona       (float _lat, float _long) {};
+    int habitantesPorZona       (float _lat, float _long) {
+        int numHabitantes = 0;
+        float distance;
+        
+        // Comprobar casillas que están a menos de 20Km
+        
+            // Sumar número de habitantes de municipios 
+            // DENTRO de esas casillas, y a menos de 20Km
+        
+        return numHabitantes;
+    };
     int habitantesPorZona       (string municipio) {};
     int habitantesPorProvincia  (string nombreProvincia) {
         int numHabitantes = 0;

@@ -5,10 +5,13 @@
  * Created on 19 de diciembre de 2014, 16:34
  */
 
+#define DEG2RAD  57.29577951
+
 #include <cstdlib>
 #include <iostream>
 #include <fstream>
 #include <vector>
+#include <cmath>
 
 #include "Municipio.h"
 #include "Provincia.h"
@@ -16,6 +19,13 @@
 #include "ControlDemografico.h"
 
 using namespace std;
+
+float distancia(float latitud1, float longitud1, float latitud2, float longitud2) {
+    double dist = sin(latitud1 / DEG2RAD) * sin(latitud2 / DEG2RAD)
+            + cos(latitud1 / DEG2RAD) * cos(latitud2 / DEG2RAD)
+            * cos(longitud2 / DEG2RAD - longitud1 / DEG2RAD);
+    return (float) (acos(dist) * 6370.94690683);
+}
 
 void cargaFichero(ControlDemografico &cd) {
     try {
@@ -62,20 +72,16 @@ int main(int argc, char** argv) {
     ControlDemografico cd(36.1251199, -9.1367635, 43.8321591, 4.3428536, 30);
     cargaFichero(cd);
     
-
-    map<string, Provincia>::iterator it = cd.lista_provincias.find("Córdoba");
+    float coor1, coor2;
     
-    cout << "Provincia: " << it->first << endl;
-    cout << "Municipios: " << it->second.lista_municipios.size() << endl;
-    cout << it->second.nombre << endl;
+    // Coordenadas de Peal
+    coor1 = 37.91332;
+    coor2 = -3.121655;
     
-    cout << "Cantidad de habitantes: " 
-            << cd.habitantesPorProvincia(it->first) << endl;
+    cout << "Número de habitantes para las coordinadas " << coor1 << ", "
+            << coor2 << endl;
+    cout << cd.habitantesPorZona(coor1,coor2);
     
-    cout << "Cantidad total de provincias: " 
-            << cd.lista_provincias.size() << endl;
-
-
     return 0;
 }
 
