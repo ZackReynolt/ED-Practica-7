@@ -17,7 +17,7 @@
 
 using namespace std;
 
-void cargaFichero(ControlDemografico cd) {
+void cargaFichero(ControlDemografico &cd) {
     try {
         // Opens a file
         fstream fi("municipios.txt");
@@ -60,8 +60,17 @@ int main(int argc, char** argv) {
     ControlDemografico cd(36.1251199, -9.1367635, 43.8321591, 4.3428536, 30);
     cargaFichero(cd);
     
-    map<string, Provincia>::iterator it = cd.lista_provincias.find("Granada");
-    cout << it->second.habitantes() << endl;
+    map<string, Provincia>::iterator it = cd.lista_provincias.find("Córdoba");
+    
+    cout << "Provincia: " << it->first << endl;
+    cout << "Municipios: " << it->second.lista_municipios.size() << endl;
+    cout << it->second.nombre << endl;
+    
+    cout << "Cantidad de habitantes: " 
+            << cd.habitantesPorProvincia(it->first) << endl;
+    
+    cout << "Cantidad total de provincias: " 
+            << cd.lista_provincias.size() << endl;
 
     return 0;
 }
