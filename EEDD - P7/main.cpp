@@ -17,7 +17,7 @@
 
 using namespace std;
 
-void cargaFichero(ControlDemografico cd) {
+void cargaFichero(ControlDemografico &cd) {
     try {
         // Opens a file
         fstream fi("municipios.txt");
@@ -40,9 +40,11 @@ void cargaFichero(ControlDemografico cd) {
                 float latitud   = atof(atributo[3].c_str());
                 float longitud  = atof(atributo[4].c_str());
                 float altitud   = atof(atributo[5].c_str());
-                int habit  = atoi(atributo[6].c_str());
+                int habit       = atoi(atributo[6].c_str());
+                Municipio *municipio = new Municipio(atributo[2], latitud, longitud, altitud, habit);
 
-                it->second.lista_municipios.push_back(new Municipio(atributo[2], latitud, longitud, altitud, habit));
+                it->second.lista_municipios.push_back(municipio);
+                cd.malla_municipios.insertarDato(latitud, longitud, *municipio);
                 contador = 0;
             } else
                 contador++;
@@ -60,8 +62,8 @@ int main(int argc, char** argv) {
     ControlDemografico cd(36.1251199, -9.1367635, 43.8321591, 4.3428536, 30);
     cargaFichero(cd);
     
-    map<string, Provincia>::iterator it = cd.lista_provincias.find("Granada");
-    cout << it->second.habitantes() << endl;
+    map<string, Provincia>::iterator it = cd.lista_provincias.find("Madrid");
+    cout << it->second.nombre << endl;
 
     return 0;
 }

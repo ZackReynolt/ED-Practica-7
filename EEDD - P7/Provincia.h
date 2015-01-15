@@ -20,10 +20,10 @@ public:
     vector<Municipio*> lista_municipios;
     
     
-    Provincia          (string nom): nombre(nom), lista_municipios() {};
-    Provincia          (const Provincia& orig) {};
-    virtual ~Provincia () {};
-    int habitantes() {
+    Provincia           (string nom): nombre(nom), lista_municipios() {};
+    Provincia           (const Provincia& orig) {};
+    virtual ~Provincia  () {};
+    int habitantes      () {
         int total_habitantes=0;
         
         //Suma de los habitantes de cada municipio
@@ -36,7 +36,7 @@ public:
     
     bool operator==(const Provincia &orig) {
         return nombre == orig.nombre;
-    };
+    }
     
 private:
 
