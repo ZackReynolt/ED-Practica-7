@@ -42,10 +42,14 @@ void cargaFichero(ControlDemografico &cd) {
                 float altitud   = atof(atributo[5].c_str());
                 int habit       = atoi(atributo[6].c_str());
                 Municipio *municipio = new Municipio(atributo[2], latitud, longitud, altitud, habit);
-
+                
+                if (municipio->_nombre == "Agaete")
+                    cout << "Allande" << endl;
+                cout << municipio->_nombre << endl;
                 it->second.lista_municipios.push_back(municipio);
-                cd.malla_municipios.insertarDato(latitud, longitud, *municipio);
+                cd.malla_municipios.insertarDato(latitud, longitud, municipio);
                 contador = 0;
+                
             } else
                 contador++;
         }
@@ -59,7 +63,9 @@ void cargaFichero(ControlDemografico &cd) {
  * 
  */
 int main(int argc, char** argv) {
-    ControlDemografico cd(36.1251199, -9.1367635, 43.8321591, 4.3428536, 30);
+    // 27.6254357, -18.3726917
+    // 43.8321591, 4.3428536
+    ControlDemografico cd(27.6254357, -18.3726917, 43.8321591, 4.3428536, 45);
     cargaFichero(cd);
     
 
@@ -74,7 +80,6 @@ int main(int argc, char** argv) {
     
     cout << "Cantidad total de provincias: " 
             << cd.lista_provincias.size() << endl;
-
 
     return 0;
 }

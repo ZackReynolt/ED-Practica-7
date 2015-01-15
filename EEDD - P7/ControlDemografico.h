@@ -20,10 +20,8 @@ using namespace std;
 class ControlDemografico {
 public:
     map<string, Provincia> lista_provincias;
-    MallaRegular<Municipio> malla_municipios;
+    MallaRegular<Municipio*> malla_municipios;
     
-    // 36.1251199, -9.1367635
-    // 43.8321591, 4.3428536
     ControlDemografico          (float lat_min, float long_min, float lat_max, float long_max, int division ) : 
                                 malla_municipios(lat_min, long_min, lat_max, long_max, division) {};
     //ControlDemografico          (const ControlDemografico& orig) {};
