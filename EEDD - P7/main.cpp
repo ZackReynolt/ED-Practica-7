@@ -52,9 +52,11 @@ void cargaFichero(ControlDemografico &cd) {
                 float altitud   = atof(atributo[5].c_str());
                 int habit       = atoi(atributo[6].c_str());
                 Municipio *municipio = new Municipio(atributo[2], latitud, longitud, altitud, habit);
-
                 it->second.lista_municipios.push_back(municipio);
-                cd.malla_municipios.insertarDato(latitud, longitud, *municipio);
+                cd.malla_municipios.insertarDato(latitud, longitud, municipio);
+                
+                pair<string, Municipio*> q(atributo[2], municipio);
+                cd.lista_municipios.insert(q);
                 contador = 0;
             } else
                 contador++;
@@ -81,15 +83,12 @@ int main(int argc, char** argv) {
     coor2 = -3.121655;
     
     cout << "Número de habitantes para las coordinadas " << coor1 << ", "
-            << coor2 << endl;
-    cout << cd.habitantesPorZona(coor1,coor2);
+            << coor2 << ": ";
+    cout << cd.habitantesPorZona(coor1,coor2) << endl;
     
-<<<<<<< HEAD
-=======
-    cout << "Cantidad total de provincias: " 
-            << cd.lista_provincias.size() << endl;
-
->>>>>>> origin/Develop
+    cout << "Número de habitantes para el municipio Peal de Becerro: ";
+    cout << cd.habitantesPorZona("Peal de Becerro");
+    
     return 0;
 }
 
