@@ -69,7 +69,9 @@ void cargaFichero(ControlDemografico &cd) {
  * 
  */
 int main(int argc, char** argv) {
-    ControlDemografico cd(36.1251199, -9.1367635, 43.8321591, 4.3428536, 30);
+    // 27.6254357, -18.3726917
+    // 43.8321591, 4.3428536
+    ControlDemografico cd(27.6254357, -18.3726917, 43.8321591, 4.3428536, 45);
     cargaFichero(cd);
     
     float coor1, coor2;
@@ -82,6 +84,12 @@ int main(int argc, char** argv) {
             << coor2 << endl;
     cout << cd.habitantesPorZona(coor1,coor2);
     
+<<<<<<< HEAD
+=======
+    cout << "Cantidad total de provincias: " 
+            << cd.lista_provincias.size() << endl;
+
+>>>>>>> origin/Develop
     return 0;
 }
 

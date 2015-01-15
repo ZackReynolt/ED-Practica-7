@@ -26,18 +26,16 @@ public:
 
 template<class T>
 class MallaRegular {
-    float xMin, yMin, xMax, yMax; // tamaño real global
-    float tamaCasillaX, tamaCasillaY; // tamaño real de cada casilla
+    float xMin, yMin, xMax, yMax;       // tamaño real global
+    float tamaCasillaX, tamaCasillaY;   // tamaño real de cada casilla
     
-    vector<vector<Casilla<T> > > mr; //vector 2D de casillas
+    vector<vector<Casilla<T> > > mr;    //vector 2D de casillas
     
-    Casilla<T> *obtenerCasilla (float x, float y);
+    Casilla<T>* obtenerCasilla (float x, float y);
     
 public:
-    // 36.1251199, -9.1367635
-    // 43.8321591, 4.3428536
-    MallaRegular (int aXMin, int aYMin, int aXMax, int aYMax, int aNDiv): 
-                    xMin(aXMin), yMin(aYMin), xMax(aXMax), yMax(aYMax) {
+    MallaRegular (float aXMin, float aYMin, float aXMax, float aYMax, int aNDiv): 
+                    xMin(aXMin), yMin(aYMin), xMax(aXMax), yMax(aYMax),  mr(aNDiv, vector<Casilla<T> >(aNDiv)) {
         tamaCasillaX = (xMax - xMin) / aNDiv;
         tamaCasillaY = (yMax - yMin) / aNDiv;
     };
