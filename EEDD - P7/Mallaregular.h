@@ -64,7 +64,7 @@ vector<T> MallaRegular<T>::buscarRango(float rxmin, float rymin, float rxmax, fl
    
     while (i <= imax) {
         while (j <= jmax) {
-            vectorMun.push_back(mr[i][j].puntos);
+            vectorMun.insert(vectorMun.end(),mr[i][j].puntos.begin(),  mr[i][j].puntos.end());
             j++;
         }
     j = jmin;

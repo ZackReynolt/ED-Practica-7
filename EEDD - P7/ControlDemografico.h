@@ -8,14 +8,24 @@
 #ifndef CONTROLDEMOGRAFICO_H
 #define	CONTROLDEMOGRAFICO_H
 
+#define DEG2RAD  57.29577951
+
 #include <map>
 #include <string>
+#include <cmath>
 
 #include "Provincia.h"
 #include "Municipio.h"
 #include "Mallaregular.h"
 
 using namespace std;
+
+float distancia(float latitud1, float longitud1, float latitud2, float longitud2) {
+    double dist = sin(latitud1 / DEG2RAD) * sin(latitud2 / DEG2RAD)
+            + cos(latitud1 / DEG2RAD) * cos(latitud2 / DEG2RAD)
+            * cos(longitud2 / DEG2RAD - longitud1 / DEG2RAD);
+    return (float) (acos(dist) * 6370.94690683);
+}
 
 class ControlDemografico {
 public:
@@ -34,12 +44,19 @@ public:
         int numHabitantes = 0;
         vector<Municipio*> listaMuni;
         
-        // Obtener los municipios que están a menos de 30 Km
-//        listaMuni = malla_municipios.burcarRango(_lat-rango, _long-rango, 
-//                                                 _lat+rango, _long+rango);
+        // Obtener los municipios en casillas a 30Km
+        listaMuni = malla_municipios.buscarRango(_lat-rango, _long-rango, _lat+rango, _long+rango);
         
-        for (int i = 0; i < listaMuni.size(); ++i )
+        // Eliminar los municipios a más de 30Km
+        for (vector<Municipio*>::iterator ite = listaMuni.begin(); ite != listaMuni.end(); ite++) {
+            if (distancia(_lat, _long, (*ite)->_lat, (*ite)->_long) < 30)
+                ite = listaMuni.erase(ite);
+        }
+        
+        for (int i = 0; i < listaMuni.size(); ++i) {
+            //cout << " - Pueblo" << i << ": " << listaMuni[i]->_nombre << endl;
             numHabitantes+= listaMuni[i]->habitantes();
+        }
         
         return numHabitantes;
     };
