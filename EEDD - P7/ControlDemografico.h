@@ -33,10 +33,9 @@ public:
     int habitantesPorZona       (string municipio) {};
     int habitantesPorProvincia  (string nombreProvincia) {
         int numHabitantes = 0;
-        for (int i = 0; i < lista_provincias.size(); ++i) {
-//            if (lista_provincias[i].nombre == nombreProvincia)
-//                numHabitantes = lista_provincias[i].habitantes();
-        }
+        
+        map<string, Provincia>::iterator it = this->lista_provincias.find(nombreProvincia);
+        numHabitantes = it->second.habitantes();
         
         return numHabitantes;
     };
